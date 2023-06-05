@@ -1,0 +1,44 @@
+FUNCTION dot_product(v1 , v2 : ARRAY_OF FLOAT ) : FLOAT
+VAR
+    i : INTEGER
+    ps : FLOAT
+BEGIN
+    ps := 0
+    i := 0
+    IF (v1.length <> v2.length) THEN
+        write("vectors with different sizes")
+        ps := NaN
+    END_IF
+    WHILE (i < v1.length) DO
+        ps := ps + v1[i]*v2[i]
+    END_WHILE
+    RETURN ps ;
+
+END
+
+ALGORITHM orthogonal_vectors
+VAR
+    v1 , v2 : ARRAY_OF FLOAT ;
+    ps : FLOAT ;
+    i , n : integer ;
+BEGIN
+    i = 0;
+
+    write("write v1 and v2 length")
+    read(n)
+
+    FOR i FROM 0 TO n-1 STEP DO
+        read (v1[i])
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP step 1 DO
+        read (v2[i])
+    END_FOR
+
+    dot_product (v1,v2 ,ps )
+        IF (ps =0 ) THEN
+        wrute ("v1 and v2 are orthigonals")
+        ELSE
+            write("v1 and v2 are not orthogonals")
+        END_IF
+    END_IF
+END
